@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 ## [0.7.3] — 2026-04-15
 
 ### Changed
-- Configure scoped npm package to publish as **public** (`publishConfig.access: "public"`).
+- Renamed package to `cursor-composer-in-claude` for npm publishing.
 
 ## [0.7.2] — 2026-04-15
 

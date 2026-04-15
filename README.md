@@ -28,7 +28,7 @@ This fork **always** forces `CURSOR_SKIP_KEYCHAIN=1` into every spawned Cursor a
 **From npm (use as SDK in another project):**
 
 ```bash
-npm install cursor-api-proxy
+npm install cursor-composer-in-claude
 ```
 
 **From source (develop or run CLI locally):**
@@ -117,7 +117,7 @@ This is an optional consumer-side example. `openai` is not a dependency of `curs
 
 ```js
 import OpenAI from "openai";
-import { getOpenAIOptionsAsync } from "cursor-api-proxy";
+import { getOpenAIOptionsAsync } from "cursor-composer-in-claude";
 
 const opts = await getOpenAIOptionsAsync(); // starts proxy if needed
 const client = new OpenAI(opts);
@@ -134,7 +134,7 @@ For a sync config without auto-start, use `getOpenAIOptions()` and ensure the pr
 ### Option B: Minimal client (no OpenAI SDK)
 
 ```js
-import { createCursorProxyClient } from "cursor-api-proxy";
+import { createCursorProxyClient } from "cursor-composer-in-claude";
 
 const proxy = createCursorProxyClient(); // proxy starts on first request if needed
 const data = await proxy.chatCompletionsCreate({
