@@ -23,13 +23,11 @@
     "cursor-api-proxy": "dist/cli.js"
   },
   "scripts": {
-    "prepare": "tsc -p tsconfig.json",
     "build": "tsc -p tsconfig.json",
     "start": "node ./dist/cli.js",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "vitest run",
-    "test:watch": "vitest",
-    "prepublishOnly": "npm run build && npm test"
+    "test:watch": "vitest"
   },
   "engines": {
     "node": ">=18"
