@@ -1,4 +1,4 @@
-# cursor-api-proxy
+# cursor-composer-in-claude
 
 OpenAI-compatible proxy for Cursor CLI. Expose Cursor models on localhost so any LLM client (OpenAI SDK, LiteLLM, LangChain, etc.) can call them as a standard chat API.
 
@@ -35,7 +35,7 @@ npm install cursor-composer-in-claude
 
 ```bash
 git clone <this-repo>
-cd cursor-api-proxy
+cd cursor-composer-in-claude
 npm install
 npm run build
 ```
