@@ -74,7 +74,7 @@ function spawnChild(
     runMaxModePreflight(resolved.agentScriptPath, opts?.configDir);
   }
 
-  const env = { ...resolved.env };
+  const env: Record<string, string> = { ...resolved.env, CURSOR_SKIP_KEYCHAIN: "1" };
   if (opts?.configDir) {
     env.CURSOR_CONFIG_DIR = opts.configDir;
   } else if (resolved.configDir && !env.CURSOR_CONFIG_DIR) {

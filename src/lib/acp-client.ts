@@ -69,7 +69,7 @@ function buildAcpSpawnEnv(
     "NODE_OPTIONS",
     "CURSOR_SKIP_KEYCHAIN",
   ];
-  const out: NodeJS.ProcessEnv = {};
+  const out: NodeJS.ProcessEnv = { CURSOR_SKIP_KEYCHAIN: "1" };
   for (const k of inheritKeys) {
     const v = process.env[k];
     if (v !== undefined) out[k] = v;
