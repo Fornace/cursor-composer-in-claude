@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.7.3] — 2026-04-15
+
+### Changed
+- Configure scoped npm package to publish as **public** (`publishConfig.access: "public"`).
+
 ## [0.7.2] — 2026-04-15
 
 Fork of [cursor-api-proxy](https://github.com/anyrobert/cursor-api-proxy) 0.7.1 with keychain and Node.js fixes.
