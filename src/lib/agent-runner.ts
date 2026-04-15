@@ -8,6 +8,7 @@ import { readKeychainToken, writeCachedToken } from "./token-cache.js";
 
 function cacheTokenForAccount(configDir?: string): void {
   if (!configDir) return;
+  if (process.env.CURSOR_SKIP_KEYCHAIN === "1") return;
   const token = readKeychainToken();
   if (token) writeCachedToken(configDir, token);
 }

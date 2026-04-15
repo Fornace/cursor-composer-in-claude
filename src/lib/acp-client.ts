@@ -67,6 +67,7 @@ function buildAcpSpawnEnv(
     "PROGRAMDATA",
     "PUBLIC",
     "NODE_OPTIONS",
+    "CURSOR_SKIP_KEYCHAIN",
   ];
   const out: NodeJS.ProcessEnv = {};
   for (const k of inheritKeys) {
