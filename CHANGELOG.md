@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.7.6] — 2026-04-15
+
+### Fixed
+- **macOS keychain / headless agent** — Every spawned Cursor `agent` child now gets **`CI=true`** in addition to **`CURSOR_SKIP_KEYCHAIN=1`** (CLI, ACP, SDK auto-start, and `process.ts` after `envOverrides` so callers cannot disable either). Reduces keychain access from the CLI when used from harnesses such as claude-overnight.
+
+## [0.7.5] — 2026-04-15
+
+Version bump (no functional change from 0.7.4).
+
 ## [0.7.4] — 2026-04-15
 
 ### Fixed

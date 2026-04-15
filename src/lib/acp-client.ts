@@ -45,7 +45,7 @@ const DEFAULT_REQUEST_TIMEOUT_MS = 60_000;
 
 /**
  * Avoid passing the entire parent environment into ACP children (may contain unrelated secrets).
- * `CURSOR_SKIP_KEYCHAIN` must never be inherited from the parent: a mistaken "0" or empty
+ * `CURSOR_SKIP_KEYCHAIN` / `CI` must never be inherited from the parent: a mistaken "0" or empty
  * value there would re-enable keychain prompts. Apply it last so `extra` cannot disable it.
  */
 export function buildAcpSpawnEnv(
@@ -83,6 +83,7 @@ export function buildAcpSpawnEnv(
     }
   }
   out.CURSOR_SKIP_KEYCHAIN = "1";
+  out.CI = "true";
   return out;
 }
 

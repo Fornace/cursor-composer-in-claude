@@ -74,7 +74,10 @@ function spawnChild(
     runMaxModePreflight(resolved.agentScriptPath, opts?.configDir);
   }
 
-  const env: Record<string, string> = { ...resolved.env, CURSOR_SKIP_KEYCHAIN: "1" };
+  const env: Record<string, string> = {};
+  for (const [k, v] of Object.entries(resolved.env)) {
+    if (v !== undefined) env[k] = v;
+  }
   if (opts?.configDir) {
     env.CURSOR_CONFIG_DIR = opts.configDir;
   } else if (resolved.configDir && !env.CURSOR_CONFIG_DIR) {
@@ -83,6 +86,9 @@ function spawnChild(
   if (opts?.envOverrides) {
     Object.assign(env, opts.envOverrides);
   }
+  // Headless agent runs: skip keychain read/write and CI-style probe (last so callers cannot override).
+  env.CURSOR_SKIP_KEYCHAIN = "1";
+  env.CI = "true";
 
   const useStdin = typeof opts?.stdinContent === "string";
   const child = spawn(resolved.command, resolved.args, {

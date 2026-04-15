@@ -73,6 +73,7 @@ describe("loadBridgeConfig", () => {
     expect(config.acpEnv.CURSOR_API_KEY).toBe("sk-abc");
     expect(config.acpEnv.CURSOR_AUTH_TOKEN).toBe("sk-abc");
     expect(config.acpEnv.CURSOR_SKIP_KEYCHAIN).toBe("1");
+    expect(config.acpEnv.CI).toBe("true");
   });
 
   it("allows CURSOR_BRIDGE_ACP_SKIP_AUTHENTICATE to force skip", () => {

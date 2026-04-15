@@ -17,4 +17,9 @@ describe("buildAcpSpawnEnv", () => {
     const env = buildAcpSpawnEnv({ CURSOR_SKIP_KEYCHAIN: "0" });
     expect(env.CURSOR_SKIP_KEYCHAIN).toBe("1");
   });
+
+  it("forces CI=true for headless agent (cannot be overridden by extra)", () => {
+    const env = buildAcpSpawnEnv({ CI: "false" });
+    expect(env.CI).toBe("true");
+  });
 });
