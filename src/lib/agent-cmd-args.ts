@@ -10,9 +10,10 @@ export function buildAgentFixedArgs(
   stream: boolean,
 ): string[] {
   const args = ["--print"];
+  // Always trust the workspace — we run headless, can't interactively approve
   if (config.approveMcps) args.push("--approve-mcps");
   if (config.force) args.push("--force");
-  if (config.chatOnlyWorkspace) args.push("--trust");
+  args.push("--trust");
   args.push("--mode", config.mode);
   args.push("--workspace", workspaceDir);
   args.push("--model", model);
