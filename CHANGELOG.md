@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.9.3] — 2026-04-17
+
+### Fixed
+- **`--mode agent` is now the default** — Previously the proxy always appended `--mode <plan|ask>` to every `cursor-agent` invocation. Current cursor-agent treats both as strictly read-only (Write/Bash calls are silently dropped, exit 0 with empty stdout), which broke tool-heavy consumers such as claude-overnight workers. The mode flag is now only passed when `CURSOR_BRIDGE_MODE` is explicitly set to `plan` or `ask`; the new default (`agent`) omits the flag entirely so cursor-agent runs in its full agentic mode with Write/Bash/Read tool use. `CursorExecutionMode` accepts `"agent" | "plan" | "ask"`.
+
 ## [0.9.0] — 2026-04-16
 
 ### Added

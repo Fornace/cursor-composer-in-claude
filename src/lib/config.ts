@@ -1,5 +1,6 @@
 import { loadEnvConfig, resolveAgentCommand, type EnvOptions } from "./env.js";
 
+/** "agent" is a sentinel meaning "default agentic mode" — do not pass --mode to cursor-agent. */
 export type CursorExecutionMode = "agent" | "ask" | "plan";
 
 export type BridgeConfig = {
@@ -79,7 +80,7 @@ export function loadBridgeConfig(opts: EnvOptions = {}): BridgeConfig {
     port: env.port,
     requiredKey: env.requiredKey,
     defaultModel: env.defaultModel,
-    mode: env.mode as CursorExecutionMode, // "ask" (default) or "plan" via CURSOR_BRIDGE_MODE
+    mode: env.mode as CursorExecutionMode, // "agent" (default, full tools), "plan", or "ask" via CURSOR_BRIDGE_MODE
     force: env.force,
     approveMcps: env.approveMcps,
     strictModel: env.strictModel,

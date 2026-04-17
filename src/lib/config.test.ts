@@ -15,7 +15,7 @@ describe("loadBridgeConfig", () => {
     expect(config.force).toBe(false);
     expect(config.approveMcps).toBe(false);
     expect(config.strictModel).toBe(true);
-    expect(config.mode).toBe("ask");
+    expect(config.mode).toBe("agent");
     expect(config.workspace).toBe("/workspace");
     expect(config.chatOnlyWorkspace).toBe(true);
     expect(config.sessionsLogPath).toBe(path.join("/workspace", "sessions.log"));

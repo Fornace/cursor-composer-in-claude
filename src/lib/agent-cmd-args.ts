@@ -14,7 +14,12 @@ export function buildAgentFixedArgs(
   if (config.approveMcps) args.push("--approve-mcps");
   if (config.force) args.push("--force");
   args.push("--trust");
-  args.push("--mode", config.mode);
+  // cursor-agent --mode accepts only "plan" | "ask" (both read-only). Any
+  // other value (e.g. "agent") means "don't pass the flag" so the CLI runs
+  // in its default agentic mode with full Write/Bash tool use.
+  if (config.mode === "plan" || config.mode === "ask") {
+    args.push("--mode", config.mode);
+  }
   args.push("--workspace", workspaceDir);
   args.push("--model", model);
   if (stream) {
