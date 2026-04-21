@@ -1,11 +1,12 @@
 {
   "name": "cursor-composer-in-claude",
-  "version": "0.10.2",
+  "version": "0.10.3",
   "description": "OpenAI- and Anthropic-compatible proxy for the Cursor agent CLI. Use Cursor models from any LLM client, with multi-account rotation, streaming, and an auto-starting SDK.",
   "type": "module",
   "files": [
     "dist",
     "!dist/**/*.test.*",
+    "README.md",
     "package.json"
   ],
   "main": "./dist/client.js",
